@@ -48,15 +48,15 @@
                             <div class="col-md-7">
                                 {% for tag in post_catalog_one.tags.all %}
                                     <span class="tag orange" style="margin-left: 1px;">
-                                        <a href="{% url 'newspaper:tag' tag %}" target="_self">
-                                            {{ tag }}
+                                        <a href="{% url 'newspaper:tag' tag.slug %}" target="_self">
+                                            {{ tag.name }}
                                         </a>
                                     </span>
                                 {% endfor %}
 
                                 <div class="category_article_title">
                                     <h2><a href="{{ post_catalog_one.get_absolute_url }}" target="_self">
-                                            {{ post_catalog_one.title }}
+                                            {{ post_catalog_one.title|safe }}
                                         </a></h2>
                                 </div>
                                 <!-- category_article_title -->
@@ -67,7 +67,7 @@
                                 <!----article_date------>
                                 <!-- category_article_wrapper -->
                                 <div class="category_article_content">
-                                    {{ post_catalog_one.description|truncatechars:100 }}.
+                                    {{ post_catalog_one.description|truncatechars:100|safe }}.
                                 </div>
                                 <!-- category_article_content -->
                                 <div class="media_social">
@@ -115,15 +115,15 @@
 
                                     {% for tag in post_catalog_two.tags.all %}
                                         <span class="tag pink" style="margin-right: 1px;">
-                                            <a href="{% url 'newspaper:tag' tag %}" target="_self">
-                                                {{ tag }}
+                                            <a href="{% url 'newspaper:tag' tag.slug %}" target="_self">
+                                                {{ tag.name }}
                                             </a>
                                         </span>
                                     {% endfor %}
 
                                     <div class="category_article_title">
                                         <h2><a href="{{ post_catalog_two.get_absolute_url }}" target="_self">
-                                            {{ post_catalog_two.title }} </a></h2>
+                                            {{ post_catalog_two.title|safe }} </a></h2>
                                     </div>
                                     <!-- category_article_title -->
 
@@ -135,7 +135,7 @@
                                     <!-- category_article_date -->
 
                                     <div class="category_article_content">
-                                        {{ post_catalog_two.description|truncatechars:100 }}.
+                                        {{ post_catalog_two.description|truncatechars:100|safe }}.
                                     </div>
                                     <!-- category_article_content -->
 
@@ -186,14 +186,14 @@
     
                                         {% for tag in post_catalog_three.tags.all %}
                                             <span class="tag blue" style="margin-right: 1px;">
-                                                <a href="{% url 'newspaper:tag' tag %}" target="_self">
-                                                {{ tag }}</a>
+                                                <a href="{% url 'newspaper:tag' tag.slug %}" target="_self">
+                                                {{ tag.name }}</a>
                                             </span>
                                         {% endfor %}
     
                                         <div class="category_article_title">
                                             <h2><a href="{{ post_catalog_three.get_absolute_url }}" target="_self">
-                                                {{ post_catalog_three.title }} </a></h2>
+                                                {{ post_catalog_three.title|safe }} </a></h2>
                                         </div>
                                         <!-- category_article_title -->
     
@@ -205,7 +205,7 @@
                                         <!-- category_article_date -->
     
                                         <div class="category_article_content">
-                                            {{ post_catalog_three.description|truncatechars:100 }}.
+                                            {{ post_catalog_three.description|truncatechars:100|safe  }}.
                                         </div>
                                         <!-- category_article_content -->
     
@@ -259,13 +259,13 @@
                             <div class="col-md-7">
                                 {% for tag in post_catalog_four.tags.all %}
                                     <span class="tag orange" style="margin-right: 1px;">
-                                        <a href="{% url 'newspaper:tag' tag %}" target="_self">
-                                        {{ tag }}</a>
+                                        <a href="{% url 'newspaper:tag' tag.slug %}" target="_self">
+                                        {{ tag.name }}</a>
                                     </span>
                                 {% endfor %}
                                 <div class="category_article_title">
                                     <h2><a href="{{ post_catalog_four.get_absolute_url }}" target="_self">
-                                            {{ post_catalog_four.title }} </a></h2>
+                                            {{ post_catalog_four.title|safe }} </a></h2>
                                 </div>
                                 <!-- category_article_title -->
                                 <div class="article_date"><a href="#">
@@ -275,7 +275,7 @@
                                 <!----article_date------>
                                 <!-- category_article_wrapper -->
                                 <div class="category_article_content">
-                                    {{ post_catalog_four.description|truncatechars:100 }}.
+                                    {{ post_catalog_four.description|truncatechars:100|safe  }}.
                                 </div>
                                 <!-- category_article_content -->
                                 <div class="media_social">
@@ -329,7 +329,7 @@
                                     {% endfor %}
                                     <div class="category_article_title">
                                         <h2><a href="{{ post_catalog_five.get_absolute_url }}" target="_self">
-                                            {{ post_catalog_five.title }} </a></h2>
+                                            {{ post_catalog_five.title|safe }} </a></h2>
                                     </div>
                                     <!-- category_article_title -->
 
@@ -341,7 +341,7 @@
                                     <!-- category_article_date -->
 
                                     <div class="category_article_content">
-                                        {{ post_catalog_five.description|truncatechars:100 }}.
+                                        {{ post_catalog_five.description|truncatechars:100|safe }}.
                                     </div>
                                     <!-- category_article_content -->
 

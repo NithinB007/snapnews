@@ -1,6 +1,7 @@
 
 import django_heroku
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,6 +28,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
+    'ckeditor_uploader',
 
     #our installed app
     'mainsite.apps.MainsiteConfig',
@@ -86,11 +89,14 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'snapbrionews2',
+        'USER': 'postgres', 
+        'PASSWORD': os.environ.get('DB_PASSWORD'), 
+        'HOST': 'localhost',  
+        'PORT': '5432',  
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -140,8 +146,14 @@ STATICFILES_DIRS = (
 )
 
 # Media Folder Settings
-MEDIA_ROOT = BASE_DIR / "media"
+"""MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = '/media/'"""
+
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = "pillow"
 
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -172,3 +184,26 @@ CORS_ORIGIN_WHITELIST = (
 'https://itech-9b147.web.app',
 'https://itech-9b147.firebaseapp.com'
 )
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Full',
+        'extraAllowedContent': 'a[!href,target,_blank,rel];',
+        'removePlugins': 'stylesheetparser',
+        'allowedContent': True,
+    },
+
+        'title': {
+        'toolbar': [
+            ['Format', 'Bold', 'Italic'],
+        ],
+        'format_tags': 'h1;h2;h3;h4;h5;h6;p',
+        'height': 100,
+        'width': 'auto',
+        'removePlugins': 'elementspath',
+        'resize_enabled': False,
+    
+
+    }
+}
+

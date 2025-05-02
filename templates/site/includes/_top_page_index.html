@@ -3,14 +3,16 @@
 <div class="col-md-5">
     <div class="feature_static_wrapper">
         <div class="feature_article_img">
+            <a href="{{ trending.get_absolute_url }}" target="_self">
             <img style="height: 269.717px; width: 457.5px;" class="img-responsive" src="{% if trending.thumbnail_url %}  {{ trending.thumbnail_url }} {% else %}{{ trending.thumbnail.url }}{% endif %}" alt="feature-top">
+        </a>
         </div>
         <!-- feature_article_img -->
 
         <div class="feature_article_inner">
             <div class="tag_lg purple">Trending</div>
             <div class="feature_article_title">
-                <h1><a href="{{ trending.get_absolute_url }}" target="_self">{{ trending.title }}</a>
+                <h1><a href="{{ trending.get_absolute_url }}" target="_self">{{ trending.titl|safe }}</a>
                 </h1>
             </div>
             <!-- feature_article_title -->
@@ -19,7 +21,7 @@
             <!-- feature_article_date -->
 
             <div class="feature_article_content">
-                {{ trending.description|truncatechars:100 }}
+                {{ trending.description|truncatechars:100|safe }}
             </div>
             <!-- feature_article_content -->
 
@@ -41,7 +43,9 @@
 <div class="col-md-5">
     <div class="feature_static_last_wrapper">
         <div class="feature_article_img">
+            <a href="{{ editor_choice.get_absolute_url }}" target="_self">
             <img style="height: 269.717px; width: 457.5px;" class="img-responsive" src="{% if editor_choice.thumbnail_url %}  {{ editor_choice.thumbnail_url }} {% else %}{{ editor_choice.thumbnail.url }}{% endif %}" alt="feature-top">
+        </a>
         </div>
         <!-- feature_article_img -->
 
@@ -57,7 +61,7 @@
             <!-- feature_article_date -->
 
             <div class="feature_article_content">
-                {{ editor_choice.description|truncatechars:100 }}
+                {{ editor_choice.description|truncatechars:100|safe }}
             </div>
             <!-- feature_article_content -->
 

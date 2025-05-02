@@ -12,4 +12,5 @@ urlpatterns = [
     path('category/<slug:slug>/', CategoryView.as_view(), name='category'),
     path('post/<slug:slug>/', PostSingleView.as_view(), name='single-post'),
     path('tag/<slug:tag>/', FilterByTag, name='tag'),
+    path('contact/', contact_view, name='contact'),
 ]

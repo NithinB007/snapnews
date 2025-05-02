@@ -3,6 +3,8 @@ from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import FormMixin
 from django.views.generic.list import MultipleObjectMixin
 from django.urls import reverse, reverse_lazy
+from django.contrib import messages
+from .forms import ContactForm
 
 from mainsite.models import HomePageSettings
 from news.models import Category, News
@@ -125,3 +127,14 @@ def FilterByTag(request, tag):
         'tag': tag
     }
     return render(request, 'site/pages/tag.html', context)
+
+def contact_view(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully submitted!')
+            return redirect('mainsite:contact')  
+    else:
+        form = ContactForm()
+    return render(request, 'site/includes/contact.html', {'form': form})
