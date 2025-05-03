@@ -712,6 +712,9 @@ section {
 .feature_article_date {
     margin-top: 10px;
 }
+.feature_article_title a:hover {
+    color: #e91e63;
+}
 .article_wrapper{
     margin-bottom: 30px;   
 }
@@ -1026,7 +1029,10 @@ section {
     font-weight: normal;
 }
 
+
+
 .entity_social .fa-facebook {
+   
     background-color: #316ab1;
 }
 

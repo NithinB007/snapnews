@@ -1741,3 +1741,20 @@ section {
     background-color: rgb(49, 160, 177);
     color: #fff;
 }
+
+.logo-social-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* space between logo and icons */
+    flex-wrap: wrap; /* responsive handling */
+}
+
+.footer-logo {
+    flex-shrink: 0;
+}
+
+.social a {
+    margin-right: 8px;
+    font-size: 18px;
+    color: #000;
+}

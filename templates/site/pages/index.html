@@ -48,7 +48,7 @@
                             <div class="col-md-7">
                                 {% for tag in post_catalog_one.tags.all %}
                                     <span class="tag orange" style="margin-left: 1px;">
-                                        <a href="{% url 'newspaper:tag' tag.slug %}" target="_self">
+                                        <a href="{{ post_catalog_one.category.get_absolute_url }}" target="_self">
                                             {{ tag.name }}
                                         </a>
                                     </span>
@@ -115,7 +115,7 @@
 
                                     {% for tag in post_catalog_two.tags.all %}
                                         <span class="tag pink" style="margin-right: 1px;">
-                                            <a href="{% url 'newspaper:tag' tag.slug %}" target="_self">
+                                            <a href="{{ post_catalog_two.category.get_absolute_url}}" target="_self">
                                                 {{ tag.name }}
                                             </a>
                                         </span>
@@ -186,7 +186,7 @@
     
                                         {% for tag in post_catalog_three.tags.all %}
                                             <span class="tag blue" style="margin-right: 1px;">
-                                                <a href="{% url 'newspaper:tag' tag.slug %}" target="_self">
+                                                <a href="{{ post_catalog_three.category.get_absolute_url }}" target="_self">
                                                 {{ tag.name }}</a>
                                             </span>
                                         {% endfor %}
@@ -259,7 +259,7 @@
                             <div class="col-md-7">
                                 {% for tag in post_catalog_four.tags.all %}
                                     <span class="tag orange" style="margin-right: 1px;">
-                                        <a href="{% url 'newspaper:tag' tag.slug %}" target="_self">
+                                        <a href="{{ post_catalog_four.category.get_absolute_url }}" target="_self">
                                         {{ tag.name }}</a>
                                     </span>
                                 {% endfor %}
@@ -323,8 +323,8 @@
 
                                     {% for tag in post_catalog_five.tags.all %}
                                     <span class="tag blue" style="margin-right: 1px;">
-                                        <a href="" target="_self">
-                                            {{ tag }}</a>
+                                        <a href="{{ post_catalog_five.get_absolute_url }}" target="_self">
+                                            {{ tag.name }}</a>
                                         </span>
                                     {% endfor %}
                                     <div class="category_article_title">
