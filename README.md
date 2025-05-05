@@ -1,4 +1,4 @@
-# News Portal Django DRF
+# News Portal Django DRf
 
 iTeach is a technology magazine platform where Editor can publish news.
   

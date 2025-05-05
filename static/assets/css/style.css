@@ -848,7 +848,7 @@ section {
 .header_blue h2:after {
     display         : table;
     position        : relative;
-    left            : 100px;
+    left            : 120px;
     bottom          : 10px;
     height          : 2px;
     content         : " ";
