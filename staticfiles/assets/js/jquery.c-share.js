@@ -107,7 +107,7 @@
       this.children('a').css({
         'display': 'inline-block',
         'margin': "auto ".concat(Number(settings.spacing) / 2, "px"),
-        'text-decoration': 'none',
+        'text-decoration': 'none !important',
         '-webkit-transition': 'all .2s',
         '-moz-transition': 'all .2s',
         'transition': 'all .2s'

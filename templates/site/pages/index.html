@@ -56,7 +56,7 @@
 
                                 <div class="category_article_title">
                                     <h2><a href="{{ post_catalog_one.get_absolute_url }}" target="_self">
-                                            {{ post_catalog_one.title|safe }}
+                                            {{ post_catalog_one.title|striptags }}
                                         </a></h2>
                                 </div>
                                 <!-- category_article_title -->
@@ -67,12 +67,14 @@
                                 <!----article_date------>
                                 <!-- category_article_wrapper -->
                                 <div class="category_article_content">
-                                    {{ post_catalog_one.description|truncatechars:100|safe }}.
+                                    {{ post_catalog_one.description|truncatewords_html:15|safe }}
                                 </div>
                                 <!-- category_article_content -->
                                 <div class="media_social">
-                                    <span><a href="#"><i class="fa fa-share-alt"></i>424 </a>
-                                        Shares</span>
+                                    <span><a href="#" onclick="openShareModal('{{ post_catalog_one.get_absolute_url }}', '{{ post_catalog_one.title|escapejs }}')">
+                                        <i class="fa fa-share-alt"></i> 929 Share
+                                    </a>
+                                    </span>
                                     <span><i class="fa fa-comments-o"></i><a href="#">
                                             {{ post_catalog_one.get_comment_count }}</a>
                                         Comments</span>
@@ -123,7 +125,7 @@
 
                                     <div class="category_article_title">
                                         <h2><a href="{{ post_catalog_two.get_absolute_url }}" target="_self">
-                                            {{ post_catalog_two.title|safe }} </a></h2>
+                                            {{ post_catalog_two.title|striptags }}</a></h2>
                                     </div>
                                     <!-- category_article_title -->
 
@@ -135,13 +137,15 @@
                                     <!-- category_article_date -->
 
                                     <div class="category_article_content">
-                                        {{ post_catalog_two.description|truncatechars:100|safe }}.
+                                        {{ post_catalog_two.description|truncatewords_html:15|safe }}
                                     </div>
                                     <!-- category_article_content -->
 
                                     <div class="media_social">
-                                        <span><a href="#"><i class="fa fa-share-alt"></i>424 </a>
-                                            Shares</span>
+                                        <span><a href="#" onclick="openShareModal('{{ post_catalog_two.get_absolute_url }}', '{{ post_catalog_two.title|escapejs }}')">
+                                            <i class="fa fa-share-alt"></i> 849 Share
+                                        </a>
+                                        </span>
                                         <span><i class="fa fa-comments-o"></i><a href="#">
                                             {{ post_catalog_two.get_comment_count }}</a>
                                             Comments</span>
@@ -193,7 +197,8 @@
     
                                         <div class="category_article_title">
                                             <h2><a href="{{ post_catalog_three.get_absolute_url }}" target="_self">
-                                                {{ post_catalog_three.title|safe }} </a></h2>
+                                                {{ post_catalog_three.title|striptags }}</a>
+                                            </h2>
                                         </div>
                                         <!-- category_article_title -->
     
@@ -205,13 +210,15 @@
                                         <!-- category_article_date -->
     
                                         <div class="category_article_content">
-                                            {{ post_catalog_three.description|truncatechars:100|safe  }}.
+                                            {{ post_catalog_three.description|truncatewords_html:15|safe }}
                                         </div>
                                         <!-- category_article_content -->
     
                                         <div class="media_social">
-                                            <span><a href="#"><i class="fa fa-share-alt"></i>424 </a>
-                                                Shares</span>
+                                            <span><a href="#" onclick="openShareModal('{{ post_catalog_three.get_absolute_url }}', '{{ post_catalog_three.title|escapejs }}')">
+                                                <i class="fa fa-share-alt"></i> 548 Share
+                                            </a>
+                                            </span>
                                             <span><i class="fa fa-comments-o"></i><a href="#">
                                                 {{ post_catalog_three.get_comment_count }}</a>
                                                 Comments</span>
@@ -265,7 +272,9 @@
                                 {% endfor %}
                                 <div class="category_article_title">
                                     <h2><a href="{{ post_catalog_four.get_absolute_url }}" target="_self">
-                                            {{ post_catalog_four.title|safe }} </a></h2>
+                                            {{ post_catalog_four.title|striptags }} 
+                                        </a>
+                                    </h2>
                                 </div>
                                 <!-- category_article_title -->
                                 <div class="article_date"><a href="#">
@@ -275,12 +284,14 @@
                                 <!----article_date------>
                                 <!-- category_article_wrapper -->
                                 <div class="category_article_content">
-                                    {{ post_catalog_four.description|truncatechars:100|safe  }}.
+                                    {{ post_catalog_four.description|truncatewords_html:15|safe }}
                                 </div>
                                 <!-- category_article_content -->
                                 <div class="media_social">
-                                    <span><a href="#"><i class="fa fa-share-alt"></i>424 </a>
-                                        Shares</span>
+                                    <span><a href="#" onclick="openShareModal('{{ post_catalog_four.get_absolute_url }}', '{{ post_catalog_four.title|escapejs }}')">
+                                        <i class="fa fa-share-alt"></i> 145 Share
+                                    </a>
+                                    </span>
                                     <span><i class="fa fa-comments-o"></i><a href="#">
                                             {{ post_catalog_four.get_comment_count }}</a>
                                         Comments</span>
@@ -329,7 +340,7 @@
                                     {% endfor %}
                                     <div class="category_article_title">
                                         <h2><a href="{{ post_catalog_five.get_absolute_url }}" target="_self">
-                                            {{ post_catalog_five.title|safe }} </a></h2>
+                                            {{ post_catalog_five.title|striptags }}</a></h2>
                                     </div>
                                     <!-- category_article_title -->
 
@@ -341,13 +352,15 @@
                                     <!-- category_article_date -->
 
                                     <div class="category_article_content">
-                                        {{ post_catalog_five.description|truncatechars:100|safe }}.
+                                        {{ post_catalog_five.description|truncatewords_html:15|safe }}
                                     </div>
                                     <!-- category_article_content -->
 
                                     <div class="media_social">
-                                        <span><a href="#"><i class="fa fa-share-alt"></i>424 </a>
-                                            Shares</span>
+                                        <span><a href="#" onclick="openShareModal('{{ post_catalog_five.get_absolute_url }}', '{{ post_catalog_five.title|escapejs }}')">
+                                            <i class="fa fa-share-alt"></i> 458 Share
+                                        </a>
+                                        </span>
                                         <span><i class="fa fa-comments-o"></i><a href="#">
                                             {{ post_catalog_five.get_comment_count }}</a>
                                             Comments</span>

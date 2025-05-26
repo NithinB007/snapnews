@@ -12,6 +12,7 @@ class Comment(models.Model):
     user = models.ForeignKey(User, blank=True, null=True , on_delete=models.CASCADE, related_name='user')
     post = models.ForeignKey(News, on_delete=models.CASCADE, related_name='post')
     reply = models.ForeignKey('self',blank=True, null=True ,on_delete=models.CASCADE, related_name='replies')
+   
 
     class Meta:
         verbose_name = "Comment"

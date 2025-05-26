@@ -43,6 +43,7 @@ urlpatterns = [
     path('account/', include('account.urls')),
     path('subscribe/', include('subscription.urls')),
     path('admin/', admin.site.urls),
+    
     path('api/', include(
         [
 
@@ -51,6 +52,7 @@ urlpatterns = [
             path('', include('news.api.urls')),
             path('', include('subscription.api.urls')),
             path('account/', include('account.api.urls')),
+            path('summernote/', include('django_summernote.urls')),
             path('swagger/', schema_view.with_ui('swagger', cache_timeout=0)),
         ]
     )

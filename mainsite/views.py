@@ -20,6 +20,11 @@ class HomeView(TemplateView):
     def get_home_page_post_list(self):
         home_page_settings = HomePageSettings.objects.last()
         news_list = News.objects.all()
+
+    # Default fallbacks in case settings are missing
+        if not home_page_settings:
+            return (None, [], [], [], [], [], [], [])
+        news_list = News.objects.all()
         post_catalog_one = news_list.filter(
             category=home_page_settings.post_catalog_one).order_by('-id')[:3]
         post_catalog_two = news_list.filter(
@@ -44,6 +49,7 @@ class HomeView(TemplateView):
         context['post_catalog_five'] = results[5]
         context['trending'] = results[6]
         context['editor_choice'] = results[7]
+        
 
         return context
 

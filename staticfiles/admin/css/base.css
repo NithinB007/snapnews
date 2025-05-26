@@ -21,7 +21,7 @@ body {
 
 a:link, a:visited {
     color: #447e9b;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 a:focus, a:hover {
@@ -29,7 +29,7 @@ a:focus, a:hover {
 }
 
 a:focus {
-    text-decoration: underline;
+    text-decoration: none !important;
 }
 
 a img {
@@ -38,11 +38,11 @@ a img {
 
 a.section:link, a.section:visited {
     color: #fff;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 a.section:focus, a.section:hover {
-    text-decoration: underline;
+    text-decoration: none !important;
 }
 
 /* GLOBAL DEFAULTS */
@@ -572,7 +572,7 @@ ul.errorlist li:first-child {
 
 ul.errorlist li a {
     color: inherit;
-    text-decoration: underline;
+    text-decoration: none !important;
 }
 
 td ul.errorlist {
@@ -652,7 +652,7 @@ a.deletelink:link, a.deletelink:visited {
 
 a.deletelink:focus, a.deletelink:hover {
     color: #993333;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 /* OBJECT TOOLS */
@@ -702,7 +702,7 @@ a.deletelink:focus, a.deletelink:hover {
 }
 
 .object-tools a:focus{
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 .object-tools a.viewsitelink, .object-tools a.golink,.object-tools a.addlink {
@@ -823,7 +823,7 @@ table#change-history tbody th {
 }
 
 #header a:focus , #header a:hover {
-    text-decoration: underline;
+    text-decoration: none !important;
 }
 
 #branding {
@@ -851,7 +851,7 @@ table#change-history tbody th {
 }
 
 #branding a:hover {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 #user-tools {
@@ -870,7 +870,7 @@ table#change-history tbody th {
 }
 
 #user-tools a:focus, #user-tools a:hover {
-    text-decoration: none;
+    text-decoration: none !important;
     border-bottom-color: #79aec8;
     color: #79aec8;
 }

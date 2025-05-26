@@ -23,7 +23,7 @@ a single block in the template.
 }
 .navbar-inverse .brand:hover a {
   color: white;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 /* custom navigation styles */

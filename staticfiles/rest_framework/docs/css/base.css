@@ -7,15 +7,13 @@ h1 {
 }
 
 pre.highlight code * {
-  white-space: nowrap;    // this sets all children inside to nowrap
+  white-space: nowrap;    
 }
 
-pre.highlight {
-  overflow-x: auto;       // this sets the scrolling in x
-}
+
 
 pre.highlight code {
-  white-space: pre;       // forces <code> to respect <pre> formatting
+  white-space: pre;       
 }
 
 .main-container {
@@ -57,7 +55,7 @@ pre.highlight code {
 .sidebar .brand a:hover,
 .sidebar .brand a:active,
 .sidebar .brand a:focus {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .sidebar .toggle-btn {
@@ -149,7 +147,7 @@ pre.highlight code {
 }
 
 .sidebar .menu-list li a {
-  text-decoration: none;
+  text-decoration: none !important;
   color: white;
 }
 
@@ -191,7 +189,7 @@ body {
 
 .coredocs-link-title a,
 .coredocs-section-title a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .coredocs-link-title:hover a,

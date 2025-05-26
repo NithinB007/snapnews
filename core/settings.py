@@ -28,8 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ckeditor',
-    'ckeditor_uploader',
+    'django_summernote',
 
     #our installed app
     'mainsite.apps.MainsiteConfig',
@@ -152,8 +151,8 @@ MEDIA_URL = '/media/'"""
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-CKEDITOR_UPLOAD_PATH = "uploads/"
-CKEDITOR_IMAGE_BACKEND = "pillow"
+
+
 
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -185,25 +184,8 @@ CORS_ORIGIN_WHITELIST = (
 'https://itech-9b147.firebaseapp.com'
 )
 
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': 'Full',
-        'extraAllowedContent': 'a[!href,target,_blank,rel];',
-        'removePlugins': 'stylesheetparser',
-        'allowedContent': True,
-    },
 
-        'title': {
-        'toolbar': [
-            ['Format', 'Bold', 'Italic'],
-        ],
-        'format_tags': 'h1;h2;h3;h4;h5;h6;p',
-        'height': 100,
-        'width': 'auto',
-        'removePlugins': 'elementspath',
-        'resize_enabled': False,
-    
 
-    }
-}
+
+
 

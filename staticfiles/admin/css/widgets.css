@@ -127,7 +127,7 @@ a.selector-chooseall, a.selector-clearall {
     font-weight: bold;
     line-height: 16px;
     color: #666;
-    text-decoration: none;
+    text-decoration: none !important;
     opacity: 0.3;
 }
 
@@ -439,7 +439,7 @@ span.clearable-file-input label {
     display: block;
     font-weight: 400;
     padding: 6px;
-    text-decoration: none;
+    text-decoration: none !important;
     color: #444;
 }
 

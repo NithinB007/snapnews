@@ -3,7 +3,7 @@ from django.db import models
 from django.shortcuts import reverse
 from django.utils.text import slugify
 from django.conf import settings
-from ckeditor.fields import RichTextField
+
 
 User = settings.AUTH_USER_MODEL
 
@@ -44,9 +44,9 @@ class Category(models.Model):
 class News(models.Model):
     author = models.ForeignKey(
         Author, on_delete=models.CASCADE, related_name='author')
-    title = RichTextField(config_name='title')
-    slug = models.SlugField(unique=True, null=True, blank=True, max_length=255)
-    description = RichTextField()
+    title = models.CharField(max_length=500)
+    slug = models.SlugField(unique=True, null=True, blank=True, max_length=1000)
+    description = models.TextField()
     thumbnail = models.ImageField(upload_to='photos/news/%Y-%m-%d/', blank=True, null=True)
     thumbnail_url = models.URLField(max_length=300, blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)

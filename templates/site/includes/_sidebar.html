@@ -19,7 +19,7 @@
             <div class="media-body">
                 <h3 class="media-heading">
                     <a href="{{ news.get_absolute_url }}" target="_self"
-                        >{{ news.title|safe }}</a
+                        >{{ news.title|striptags }}</a
                     >
                 </h3>
                 <span class="media-date"
@@ -28,11 +28,9 @@
                 >
 
                 <div class="widget_article_social">
-                    <span>
-                        <a href="single.html" target="_self">
-                            <i class="fa fa-share-alt"></i>424</a
-                        >
-                        Shares
+                    <span><a href="#" onclick="openShareModal('{{ news.get_absolute_url }}', '{{ news.title|escapejs }}')">
+                        <i class="fa fa-share-alt"></i> 529 Share
+                    </a>
                     </span>
                     <span>
                         <a href="single.html" target="_self"
@@ -197,7 +195,7 @@
                     <a
                         href="{% url 'newspaper:single-post' post.slug %}"
                         target="_self"
-                        >{{ post.title|safe }}.</a
+                        >{{ post.title|striptags }}.</a
                     >
                 </h3>
 

@@ -1,14 +1,19 @@
 from django.contrib import admin
-
-from .models import *
-
-
-admin.site.register(Category)
+from django_summernote.admin import SummernoteModelAdmin
+from .models import Category, News, Author
 
 
-class NewsAdmin(admin.ModelAdmin):
-    list_display = ('title','category', 'is_published')
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    pass
 
 
-admin.site.register(News, NewsAdmin)
-admin.site.register(Author)
+@admin.register(Author)
+class AuthorAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(News)
+class NewsAdmin(SummernoteModelAdmin):
+    list_display = ('title', 'category', 'is_published')
+    summernote_fields = ('description',)
