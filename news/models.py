@@ -73,5 +73,7 @@ class News(models.Model):
         comment_count = self.post.values(
             'post__id').aggregate(models.Count('post__id'))
         return comment_count['post__id__count']
+    
+    
 
     #

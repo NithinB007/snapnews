@@ -13,4 +13,5 @@ urlpatterns = [
     path('post/<slug:slug>/', PostSingleView.as_view(), name='single-post'),
     path('tag/<slug:tag>/', FilterByTag, name='tag'),
     path('contact/', contact_view, name='contact'),
+    path('api/search/', live_search, name='live_search'),
 ]

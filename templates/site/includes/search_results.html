@@ -1,0 +1,19 @@
+
+
+{% block content %}
+<h2>Search results for "{{ query }}"</h2>
+
+{% if results %}
+    <ul>
+        {% for news in results %}
+            <li>
+                <a href="{{ news.get_absolute_url }}">{{ news.title }}</a><br>
+                <small>Category: {{ news.category.name }}</small><br>
+                <small>Published: {{ news.timestamp|date:"Y-m-d H:i" }}</small>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No results found.</p>
+{% endif %}
+{% endblock %}

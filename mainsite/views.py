@@ -4,7 +4,10 @@ from django.views.generic.edit import FormMixin
 from django.views.generic.list import MultipleObjectMixin
 from django.urls import reverse, reverse_lazy
 from django.contrib import messages
+from django.db.models import Q
 from .forms import ContactForm
+from django.http import JsonResponse
+
 
 from mainsite.models import HomePageSettings
 from news.models import Category, News
@@ -144,3 +147,27 @@ def contact_view(request):
     else:
         form = ContactForm()
     return render(request, 'site/includes/contact.html', {'form': form})
+
+def live_search(request):
+    query = request.GET.get('q', '')
+    results = []
+
+    if query:
+        # Search in both title OR description
+        news_items = News.objects.filter(
+            Q(title__icontains=query) | Q(description__icontains=query),
+            is_published=True
+        ).select_related('category').distinct()[:10]
+        for news in news_items:
+            results.append({
+                'title': news.title,
+                'snippet': news.description[:100] + '...',
+                'slug': news.slug,
+                'url': news.get_absolute_url(),  
+                'thumbnail': news.thumbnail.url if news.thumbnail else '',
+                'category': news.category.name,
+            })
+
+    return JsonResponse({'results': results})
+
+
