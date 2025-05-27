@@ -15,7 +15,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'ueu^l#vw611-0y&4uyhj94r#8sx4*@24kntbopq6g$y2w6sbk('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.getenviron.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = ['snapbrionews.onrender.com']
 
@@ -88,12 +88,13 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('postgresql://snapbrionews_mrll_user:7mk9ZQjbmYcnzxzWDN4J0ZLHsYeB0YNx@dpg-d0qm2995pdvs73anep30-a.singapore-postgres.render.com/snapbrionews_mrll'),
+    'default': dj_database_url.parse(
+        'postgresql://snapbrionews_mrll_user:7mk9ZQjbmYcnzxzWDN4J0ZLHsYeB0YNx@dpg-d0qm2995pdvs73anep30-a.singapore-postgres.render.com/snapbrionews_mrll',
         conn_max_age=600,
         ssl_require=True
     )
 }
+
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
