@@ -3,7 +3,6 @@ import django_heroku
 from pathlib import Path
 import os
 import dj_database_url
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -15,9 +14,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'ueu^l#vw611-0y&4uyhj94r#8sx4*@24kntbopq6g$y2w6sbk('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenviron.get('DEBUG', 'False') == 'True'
+DEBUG = True
 
-ALLOWED_HOSTS = ['snapbrionews.onrender.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -86,14 +85,18 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
 DATABASES = {
-    'default': dj_database_url.parse(
-        'postgresql://snapbrionews_mrll_user:7mk9ZQjbmYcnzxzWDN4J0ZLHsYeB0YNx@dpg-d0qm2995pdvs73anep30-a.singapore-postgres.render.com/snapbrionews_mrll',
-        conn_max_age=600,
-        ssl_require=True
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'snapbrionews2',
+        'USER': 'postgres', 
+        'PASSWORD': os.environ.get('DB_PASSWORD'), 
+        'HOST': 'localhost',  
+        'PORT': '5432',  
+    }
 }
+
+DATABASES['default'] = dj_database_url.parse("postgresql://snapbrionews_fgny_user:bepRFJqnH0WegICR9kEiSw0ubf87cwUq@dpg-d0qoviumcj7s73e8gcf0-a.singapore-postgres.render.com/snapbrionews_fgny")
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -149,7 +152,7 @@ MEDIA_URL = '/media/'"""
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
@@ -181,6 +184,7 @@ CORS_ORIGIN_WHITELIST = (
 'https://itech-9b147.web.app',
 'https://itech-9b147.firebaseapp.com'
 )
+
 
 
 
