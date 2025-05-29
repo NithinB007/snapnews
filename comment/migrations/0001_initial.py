@@ -12,15 +12,16 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Email',
+            name='Comment',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('email', models.EmailField(max_length=254)),
+                ('comment', models.CharField(max_length=250)),
+                ('timestamp', models.DateTimeField(auto_now_add=True)),
             ],
             options={
-                'verbose_name': 'Email',
-                'verbose_name_plural': 'Emails',
-                'db_table': 'emails',
+                'verbose_name': 'Comment',
+                'verbose_name_plural': 'Comments',
+                'db_table': 'comments',
             },
         ),
     ]

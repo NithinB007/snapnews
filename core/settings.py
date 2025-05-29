@@ -14,9 +14,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'ueu^l#vw611-0y&4uyhj94r#8sx4*@24kntbopq6g$y2w6sbk('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['snapbrionews.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -96,7 +96,7 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.parse("postgresql://snapbrionews_fgny_user:bepRFJqnH0WegICR9kEiSw0ubf87cwUq@dpg-d0qoviumcj7s73e8gcf0-a.singapore-postgres.render.com/snapbrionews_fgny")
+DATABASES['default'] = dj_database_url.parse("postgresql://snapbrionews_07hk_user:pJpHlyxSTKyh1BgsWP5gsFLkyeZsMX1l@dpg-d0rv1je3jp1c73e5dd40-a.singapore-postgres.render.com/snapbrionews_07hk")
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
