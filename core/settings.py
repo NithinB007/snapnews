@@ -3,6 +3,7 @@ import django_heroku
 from pathlib import Path
 import os
 import dj_database_url
+from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -43,9 +44,9 @@ INSTALLED_APPS = [
     'taggit_serializer',
     'drf_yasg',
     'rest_framework_simplejwt.token_blacklist',
-
     'corsheaders',
-
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -96,7 +97,7 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.parse("postgresql://snapbrionews_07hk_user:pJpHlyxSTKyh1BgsWP5gsFLkyeZsMX1l@dpg-d0rv1je3jp1c73e5dd40-a.singapore-postgres.render.com/snapbrionews_07hk")
+DATABASES['default'] = dj_database_url.parse("postgresql://snapbrionewsdb_user:IgGcJMVdRoFvHWo9XVL7kdss9o1Bf55X@dpg-d0s3iiqdbo4c73bb8jf0-a.singapore-postgres.render.com/snapbrionewsdb")
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -133,7 +134,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
+CLOUDINARY_CLOUD_NAME = config('CLOUDINARY_CLOUD_NAME', default=None)
+CLOUDINARY_API_KEY = config('CLOUDINARY_API_KEY', default=None)
+CLOUDINARY_API_SECRET = config('CLOUDINARY_API_SECRET', default=None)
+# Configure Default Storage for media files to use Cloudinary
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 STATIC_ROOT= BASE_DIR / "staticfiles"
 
